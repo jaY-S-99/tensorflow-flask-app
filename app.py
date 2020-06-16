@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,render_template,redirect
 
 app = Flask(__name__)
 
@@ -7,7 +7,7 @@ Routes
 """
 @app.route('/',methods=['GET'])
 def index():
-    return "<h1>BEEEYA</h1>"
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

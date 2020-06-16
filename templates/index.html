@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Dog or Cat?
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12 jumbotron">
+                <h1 class="display-4">Cats or Dogs??</h1>
+                <hr>
+                <p class="lead">A simple yet very effective web application to check whether the uploaded image is a cat or a dog!<br>
+                    Here, go ahead :
+                </p>
+                <hr>
+                <form action="#" method="post">
+                    <div class="form-group form-row align-items-center no-gutters">
+                        <div class=" col-12 col-sm-2 pl-0">
+                          <label for="uploadedFile">Upload Image:</label>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                         <input type="file" name="file" id="uploadedFile" class="btn btn-defualt form-control-file" value="">
+                        </div>
+                    </div>
+                    <div class='form-group form-row'>
+                        <div class='col-12'>
+                            <button type="submit" class="btn btn-outline-secondary">Submit!</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
