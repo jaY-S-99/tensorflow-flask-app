@@ -11,8 +11,10 @@ Routess
 @app.route('/',methods=['GET','POST'])
 def index():
     if request.method == "POST":
-        image_path = request.data['imageURL']
-        if image_path is not None:
+        uploaded_image= request.data['imageURL']
+        if uploaded_image.filename != '':
+            image_path = os.path.join('static',uploaded_image.filename)
+            uploaded_image.save(image_path)
             class_name = inference.get_predictions(image_path)
             result = {
                 'class_name': class_name,
