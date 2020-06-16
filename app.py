@@ -1,6 +1,7 @@
 from flask import Flask,render_template,redirect,url_for,request
 import os
 import inference
+import uuid
 
 app = Flask(__name__)
 
@@ -10,10 +11,8 @@ Routess
 @app.route('/',methods=['GET','POST'])
 def index():
     if request.method == "POST":
-        uploaded_image= request.files['file']
-        if uploaded_image.filename != '':
-            image_path = os.path.join('static',uploaded_image.filename)
-            uploaded_image.save(image_path)
+        image_path = request.data['imageURL']
+        if image_path is not None:
             class_name = inference.get_predictions(image_path)
             result = {
                 'class_name': class_name,
